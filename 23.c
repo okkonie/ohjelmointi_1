@@ -18,13 +18,20 @@ double laskeParkkiMaksu(double aika){
 
 int main(){
 
-  for(int i = 0; i < 4; i++){
-    
-  }
+  double tunnit1, tunnit2, tunnit3;
+
+  printf("Ensimmaisen tunnit > ");
+  scanf("%lf", &tunnit1);
+  printf("Toisen tunnit > ");
+  scanf("%lf", &tunnit2);
+  printf("Kolmannen tunnit > ");
+  scanf("%lf", &tunnit3);
 
   printf("%11s %11s %11s \n", "Asiakas", "Tunnit", "Veloitus");
-
-  for(i)
+  printf("%11s %11.2f %11.2f \n", "1", tunnit1, laskeParkkiMaksu(tunnit1));
+  printf("%11s %11.2f %11.2f \n", "2", tunnit2, laskeParkkiMaksu(tunnit2));
+  printf("%11s %11.2f %11.2f \n", "3", tunnit3, laskeParkkiMaksu(tunnit3));
+  printf("%11s %11.2f %11.2f \n", "YHTEENSA", tunnit1 + tunnit2 + tunnit3, laskeParkkiMaksu(tunnit1) + laskeParkkiMaksu(tunnit2) + laskeParkkiMaksu(tunnit3));
 
   return 0;
 }
