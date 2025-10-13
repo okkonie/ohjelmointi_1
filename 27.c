@@ -1,26 +1,36 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int sekunneiksi(int tunnit, int minuutit, int sekunnit){
-  return(tunnit * 3600 + minuutit * 60 + sekunnit);
-};
+int sekunneiksi(int aika[3]){
+  return aika[0] * 3600 + aika[1] * 60 + aika[2];
+}
 
 int main() {
-  int tunnit1, minuutit1, sekunnit1, tunnit2, minuutit2, sekunnit2;
+  int aika1[3];
+  int aika2[3];
 
-  printf("Ensimmaiset tunnit > ");
-  scanf("%d", &tunnit1);
-  printf("Ensimmaiset minuutit > ");
-  scanf("%d", &minuutit1);
-  printf("Ensimmaiset tunnit > ");
-  scanf("%d", &sekunnit1);
-  printf("Toiset tunnit > ");
-  scanf("%d", &tunnit2);
-  printf("Toiset minuutit > ");
-  scanf("%d", &minuutit2);
-  printf("Toiset tunnit > ");
-  scanf("%d", &sekunnit2);
+  printf("Anna eka aika > ");
+  for(int i = 0; i < 3; i++){
+    scanf("%d", &aika1[i]);
+  }
 
-  printf("Aikaero on: %d sekuntia", sekunneiksi(tunnit1, minuutit1, sekunnit1) - sekunneiksi(tunnit2, minuutit2, sekunnit2));
-  printf("Aika on %d tuntia %d minuuttia %d sekuntia", tunnit1 - tunnit2, minuutit1 - minuutit2, sekunnit1 - sekunnit2);
+  printf("Anna toka aika > ");
+  for(int j = 0; j < 3; j++){
+    scanf("%d", &aika2[j]);
+  }
+
+  int eroSekunteina = abs(sekunneiksi(aika1) - sekunneiksi(aika2));
+  printf("Aikaero on: %d sekuntia \n", eroSekunteina);
+
+  int tunnit, minuutit;
+
+  tunnit = eroSekunteina / 3600;
+  eroSekunteina %= 3600;
+
+  minuutit = eroSekunteina / 60;
+  eroSekunteina %= 60;
+
+
+  printf("Aika on %d tuntia %d minuuttia %d sekuntia", tunnit, minuutit, eroSekunteina);
 
 }
