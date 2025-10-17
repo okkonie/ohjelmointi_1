@@ -8,11 +8,8 @@ int satunnainenLuku(){
 
 int main(){
   int vastaus = 0;
-  bool jako = false;
-
-  if(rand() % 2 == 1){
-    bool jako = true;
-  }
+  int oikea = 0;
+  bool kerto = rand() % 2 == 1;
 
   while(1){
     printf("Anna luku -1 lopettaaksesi\n");
@@ -20,16 +17,18 @@ int main(){
     int luku1 = satunnainenLuku();
     int luku2 = satunnainenLuku();
 
-    if(jako){
+    if(kerto){
       printf("Paljonko on %d kertaa %d? ", luku1, luku2);
+      oikea = luku1 * luku2; 
     } else {
       printf("Paljonko on %d jaettuna %d? ", luku1 * luku2, luku2);
+      oikea = luku1 * luku2 / luku2;
     }
     scanf("%d", &vastaus);
 
     if(vastaus == -1){return 0;}
 
-    while(vastaus != luku1 * luku2 / luku2){
+    while(vastaus != oikea){
       printf("Väärin, yritä uudelleen > ");
       scanf("%d", &vastaus);
 
